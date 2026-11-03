@@ -1,0 +1,34 @@
+name: Verificar aplicativo
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Instalar dependências
+        run: |
+          if [ -f package-lock.json ]; then npm ci; else npm install; fi
+      - name: Verificar versões do Expo
+        run: npx expo install --check
+      - name: Verificar TypeScript e regras de negócio
+        run: npm run check
+      - name: Exportar aplicativo web
+        run: npm run export:web
+      - name: Empacotar JavaScript Android
+        run: npx expo export --platform android --output-dir dist-android
+      - uses: actions/upload-artifact@v4
+        with:
+          name: build-web-e-lockfile
+          path: |
+            dist
+            package-lock.json

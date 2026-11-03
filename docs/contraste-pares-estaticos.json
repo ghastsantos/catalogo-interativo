@@ -1,0 +1,44 @@
+[
+  {
+    "foreground": "text",
+    "background": "background",
+    "ratio": 16.73,
+    "threshold": 4.5,
+    "pass": true
+  },
+  {
+    "foreground": "muted",
+    "background": "surface",
+    "ratio": 8.44,
+    "threshold": 4.5,
+    "pass": true
+  },
+  {
+    "foreground": "onAccent",
+    "background": "accent",
+    "ratio": 11.14,
+    "threshold": 4.5,
+    "pass": true
+  },
+  {
+    "foreground": "error",
+    "background": "surface",
+    "ratio": 9.26,
+    "threshold": 4.5,
+    "pass": true
+  },
+  {
+    "foreground": "line",
+    "background": "surface",
+    "ratio": 3.96,
+    "threshold": 3,
+    "pass": true
+  },
+  {
+    "foreground": "text",
+    "background": "raised",
+    "ratio": 11.75,
+    "threshold": 4.5,
+    "pass": true
+  }
+]

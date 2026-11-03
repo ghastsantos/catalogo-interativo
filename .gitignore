@@ -1,0 +1,16 @@
+node_modules/
+.expo/
+dist/
+.test-build/
+.env
+.env.*
+!.env.example
+*.log
+.DS_Store
+*.jks
+*.keystore
+*.p8
+*.p12
+*.key
+*.mobileprovision
+coverage/

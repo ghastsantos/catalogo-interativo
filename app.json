@@ -1,0 +1,13 @@
+{
+  "expo": {
+    "name": "Entre Episódios",
+    "slug": "entre-episodios",
+    "version": "1.0.0",
+    "scheme": "entreepisodios",
+    "userInterfaceStyle": "dark",
+    "ios": { "supportsTablet": true },
+    "android": { "package": "com.ghastsantos.entreepisodios" },
+    "web": { "bundler": "metro", "name": "Entre Episódios" },
+    "plugins": ["expo-secure-store"]
+  }
+}

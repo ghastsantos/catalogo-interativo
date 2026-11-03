@@ -1,0 +1,6 @@
+{
+  "check": "Sintaxe/transpilação isolada; NÃO é a checagem de tipos completa do app",
+  "files": 31,
+  "typescriptVersion": "5.8.3",
+  "errors": []
+}

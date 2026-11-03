@@ -1,0 +1,160 @@
+TAP version 13
+# Subtest: anexa páginas sem duplicar IDs e preserva a ordem
+ok 1 - anexa páginas sem duplicar IDs e preserva a ordem
+  ---
+  duration_ms: 6.233154
+  type: 'test'
+  ...
+# Subtest: uma página vazia não apaga o catálogo já carregado
+ok 2 - uma página vazia não apaga o catálogo já carregado
+  ---
+  duration_ms: 0.357077
+  type: 'test'
+  ...
+# Subtest: filtro por gênero não modifica a fonte
+ok 3 - filtro por gênero não modifica a fonte
+  ---
+  duration_ms: 0.258705
+  type: 'test'
+  ...
+# Subtest: limpa HTML e mantém texto legível
+ok 4 - limpa HTML e mantém texto legível
+  ---
+  duration_ms: 1.278198
+  type: 'test'
+  ...
+# Subtest: remove script/style e decodifica entidades numéricas
+ok 5 - remove script/style e decodifica entidades numéricas
+  ---
+  duration_ms: 0.598186
+  type: 'test'
+  ...
+# Subtest: sinopse ausente tem mensagem apropriada
+ok 6 - sinopse ausente tem mensagem apropriada
+  ---
+  duration_ms: 0.191761
+  type: 'test'
+  ...
+# Subtest: normaliza e-mail sem alterar senha
+ok 7 - normaliza e-mail sem alterar senha
+  ---
+  duration_ms: 0.547199
+  type: 'test'
+  ...
+# Subtest: rejeita e-mail inválido, senha curta e entrada exagerada
+ok 8 - rejeita e-mail inválido, senha curta e entrada exagerada
+  ---
+  duration_ms: 0.401653
+  type: 'test'
+  ...
+# Subtest: valida o nome no cadastro
+ok 9 - valida o nome no cadastro
+  ---
+  duration_ms: 0.554844
+  type: 'test'
+  ...
+# Subtest: comparação de hashes aceita igualdade e rejeita diferenças
+ok 10 - comparação de hashes aceita igualdade e rejeita diferenças
+  ---
+  duration_ms: 0.796225
+  type: 'test'
+  ...
+# Subtest: favoritar não modifica o snapshot anterior
+ok 11 - favoritar não modifica o snapshot anterior
+  ---
+  duration_ms: 0.452849
+  type: 'test'
+  ...
+# Subtest: desfavoritar preserva um registro para enviar a remoção à nuvem
+ok 12 - desfavoritar preserva um registro para enviar a remoção à nuvem
+  ---
+  duration_ms: 0.222968
+  type: 'test'
+  ...
+# Subtest: assistida exige nota válida
+ok 13 - assistida exige nota válida
+  ---
+  duration_ms: 0.252932
+  type: 'test'
+  ...
+# Subtest: marcar assistida preserva favorito e registra a nota
+ok 14 - marcar assistida preserva favorito e registra a nota
+  ---
+  duration_ms: 0.304843
+  type: 'test'
+  ...
+# Subtest: remover assistida limpa a nota sem remover o favorito
+ok 15 - remover assistida limpa a nota sem remover o favorito
+  ---
+  duration_ms: 0.194223
+  type: 'test'
+  ...
+# Subtest: não permite avaliar série não assistida
+ok 16 - não permite avaliar série não assistida
+  ---
+  duration_ms: 0.174098
+  type: 'test'
+  ...
+# Subtest: atualiza nota válida sem duplicar a pendência
+ok 17 - atualiza nota válida sem duplicar a pendência
+  ---
+  duration_ms: 1.458671
+  type: 'test'
+  ...
+# Subtest: notas não aceitam frações, strings ou NaN
+ok 18 - notas não aceitam frações, strings ou NaN
+  ---
+  duration_ms: 0.195533
+  type: 'test'
+  ...
+# Subtest: biblioteca ausente inicia vazia; JSON inválido não é silenciosamente zerado
+ok 19 - biblioteca ausente inicia vazia; JSON inválido não é silenciosamente zerado
+  ---
+  duration_ms: 0.820767
+  type: 'test'
+  ...
+# Subtest: rejeita formatos inválidos de biblioteca
+ok 20 - rejeita formatos inválidos de biblioteca
+  ---
+  duration_ms: 6.187235
+  type: 'test'
+  ...
+# Subtest: rejeita registros e referências pendentes inconsistentes
+ok 21 - rejeita registros e referências pendentes inconsistentes
+  ---
+  duration_ms: 0.726612
+  type: 'test'
+  ...
+# Subtest: preserva dados em ida e volta pelo JSON
+ok 22 - preserva dados em ida e volta pelo JSON
+  ---
+  duration_ms: 0.686393
+  type: 'test'
+  ...
+# Subtest: sincronização confirma uma revisão enviada e traz outras séries
+ok 23 - sincronização confirma uma revisão enviada e traz outras séries
+  ---
+  duration_ms: 0.440067
+  type: 'test'
+  ...
+# Subtest: edição feita durante sincronização continua pendente
+ok 24 - edição feita durante sincronização continua pendente
+  ---
+  duration_ms: 0.117513
+  type: 'test'
+  ...
+# Subtest: uma remoção remota é respeitada quando não existe edição local pendente
+ok 25 - uma remoção remota é respeitada quando não existe edição local pendente
+  ---
+  duration_ms: 0.074608
+  type: 'test'
+  ...
+1..25
+# tests 25
+# suites 0
+# pass 25
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 189.263494

@@ -1,0 +1,8 @@
+{
+  "name": "Entre Episódios",
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:22",
+  "forwardPorts": [8081],
+  "portsAttributes": { "8081": { "label": "Expo Web", "onAutoForward": "notify" } },
+  "postCreateCommand": "npm install && npx expo install --fix",
+  "customizations": { "vscode": { "extensions": ["expo.vscode-expo-tools"] } }
+}
