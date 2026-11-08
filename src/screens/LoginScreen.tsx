@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { KeyboardAvoidingView, Platform, ScrollView, Text, TextInput, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Button } from '../components/Button';
-import { authMode, useAuth } from '../contexts/AuthContext';
+import { useAuth } from '../contexts/AuthContext';
 import { colors, styles } from '../theme/theme';
 
 export function LoginScreen() {
@@ -29,7 +29,7 @@ export function LoginScreen() {
           </View>
           <View style={styles.panel}>
             <Text accessibilityRole="header" style={styles.subtitle}>{register ? 'Crie sua conta' : 'Que bom ter você aqui'}</Text>
-            <Text style={styles.muted}>{authMode === 'local' ? 'Conta local · seus dados ficam neste aparelho.' : 'Conta Supabase · biblioteca local com sincronização na nuvem.'}</Text>
+            <Text style={styles.muted}>Conta Supabase · sua biblioteca sincroniza entre dispositivos.</Text>
             {register && <View><Text style={styles.label}>Nome</Text><TextInput accessibilityLabel="Nome" autoComplete="name" textContentType="name"
               style={styles.input} value={name} onChangeText={setName} maxLength={80} editable={!busy} /></View>}
             <View><Text style={styles.label}>E-mail</Text><TextInput accessibilityLabel="E-mail" keyboardType="email-address" autoCapitalize="none"
@@ -47,7 +47,7 @@ export function LoginScreen() {
               setRegister((current) => !current); setFormError(null); setPassword(''); setConfirmation(''); clearMessages();
             }} />
           </View>
-          <Text style={[styles.muted, { textAlign: 'center' }]}>Não use uma senha que você já utiliza em outros serviços.{Platform.OS === 'web' ? ' Nesta versão web, a sessão fica no armazenamento do navegador.' : ''}</Text>
+          <Text style={[styles.muted, { textAlign: 'center' }]}>Não use uma senha que você já utiliza em outros serviços.</Text>
         </View>
       </ScrollView>
     </KeyboardAvoidingView>

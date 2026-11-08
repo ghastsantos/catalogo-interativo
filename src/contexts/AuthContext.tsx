@@ -90,7 +90,9 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }, []);
   const signIn = useCallback((email: string, password: string) => run(async () => {
     validateCredentials(email, password);
-    if (supabase) {
+    if (configurationError) throw new Error(configurationError);
+    if (authMode === 'supabase') {
+      if (!supabase) throw new Error('Supabase não está configurado.');
       const { data, error: failure } = await supabase.auth.signInWithPassword({ email: normalizeEmail(email), password });
       if (failure) throw failure;
       setUser(fromSupabase(data.user));
@@ -98,7 +100,9 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }), [run]);
   const signUp = useCallback((name: string, email: string, password: string) => run(async () => {
     validateName(name); validateCredentials(email, password);
-    if (supabase) {
+    if (configurationError) throw new Error(configurationError);
+    if (authMode === 'supabase') {
+      if (!supabase) throw new Error('Supabase não está configurado.');
       const { data, error: failure } = await supabase.auth.signUp({ email: normalizeEmail(email), password, options: { data: { name: name.trim() } } });
       if (failure) throw failure;
       if (data.session) setUser(fromSupabase(data.session.user));
@@ -106,7 +110,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     } else setUser(await localAuth.signUp(name, email, password));
   }), [run]);
   const signOut = useCallback(() => run(async () => {
-    if (supabase) {
+    if (authMode === 'supabase') {
+      if (!supabase) throw new Error('Supabase não está configurado.');
       const { error: failure } = await supabase.auth.signOut({ scope: 'local' });
       if (failure) throw failure;
     } else await localAuth.signOut();

@@ -1,36 +1,40 @@
-# Modelo de entrega — rascunho, não submeter assim
+# Modelo de entrega — falta anexar vídeo e capturas finais
 
-**Pendências:** execução completa do app, tema anterior do Flutter, nomes completos, disciplina, turma, repositório público confirmado, vídeo publicado e seis screenshots reais. Os bônus ainda não foram testados em um projeto Supabase.
+**Comprovado:** checagem TypeScript, 25 testes de domínio, exportações Web/Android e teste real Supabase com duas contas, incluindo leitura/gravação próprias e isolamento RLS.
+
+**Ainda pendente:** demonstração em aparelho, sincronização visual entre dispositivos, teste real offline/retorno da rede, tema usado no Flutter e captura da busca. As imagens fornecidas foram incluídas como evidência visual das telas; a comprovação Supabase vem do teste automatizado com duas contas.
 
 ## Capa
 
-Disciplina: [PREENCHER]
+Disciplina: Desenvolvimento Mobile Framework
 
-Turma: [PREENCHER]
+Curso/período/turma: Sistemas de Informação — 6º período, Turma A
 
-Data de entrega: [PREENCHER DATA REAL — prazo informado: 02/11/2026]
+Data de entrega: 08/11/2026
 
 Projeto: **Entre Episódios — Catálogo Interativo 2.0**
 
-Tema: Séries de televisão; TVmaze. **Confirmar que é diferente do Somativo de Flutter.**
+Tema: Séries de televisão; API TVmaze. Confirmar que não repete o tema do Somativo de Flutter.
 
-Integrantes — nomes completos de TODOS: [PREENCHER, um por linha]
+Integrantes:
+
+- Gastão Eduardo Santos Borges
 
 ## Seção 1 — Links
 
-GitHub público: [INSERIR LINK CONFIRMADO DO REPOSITÓRIO PUBLICADO]
+GitHub público: https://github.com/ghastsantos/catalogo-interativo
 
-YouTube público: [INSERIR LINK DO VÍDEO GRAVADO E PUBLICADO]
+YouTube: https://www.youtube.com/watch?v=tl81xK8C9jU — confirmar visibilidade Pública e duração de 6 a 9 minutos antes do envio.
 
 ## Seção 2 — Tema e configuração
 
-Tema proposto: catálogo de séries. API: https://www.tvmaze.com/api.
+Tema: catálogo de séries. API: https://www.tvmaze.com/api.
 
-Baseline: persistência local com AsyncStorage; cadastro/login locais com hash de senha e sessão no SecureStore no Android/iOS. Na web, o adaptador usa armazenamento do navegador.
+Configuração usada: React Native + Expo, Supabase Auth e PostgreSQL com Row Level Security.
 
-Bônus: integração preparada para Supabase Auth e banco PostgreSQL com RLS. **Só alterar a opção de entrega para “Local + Nuvem / Autenticação real” depois de configurar e comprovar.**
+Comprovação do bônus de autenticação e isolamento: teste real com duas contas aprovado. A sincronização visual em dois dispositivos e a retomada após perda de rede ainda precisam de demonstração manual.
 
-Configuração efetivamente usada no vídeo: [PREENCHER APÓS TESTAR].
+Configuração efetivamente usada no vídeo: [CONFERIR APÓS A GRAVAÇÃO].
 
 ## Seção 3 — Autoavaliação RF01–RF10
 
@@ -43,7 +47,7 @@ O estado “Parcial” é conservador: existe implementação em código, mas a 
 | RF03 | Parcial | `src/screens/DetailsScreen.tsx` |
 | RF04 | Parcial | `src/contexts/LibraryContext.tsx` |
 | RF05 | Parcial | `src/screens/LibraryScreen.tsx` |
-| RF06 | Parcial | `src/services/libraryStorage.ts` |
+| RF06 | Parcial | `src/contexts/LibraryContext.tsx` |
 | RF07 | Parcial | `src/contexts/AuthContext.tsx` |
 | RF08 | Parcial | `src/screens/SearchScreen.tsx` |
 | RF09 | Parcial | `src/hooks/useRequest.ts` |
@@ -51,7 +55,7 @@ O estado “Parcial” é conservador: existe implementação em código, mas a 
 
 ## Seção 4 — Flutter × React Native
 
-**Texto técnico-base para o grupo adaptar à experiência real; não é um relato confirmado do Somativo de Flutter.**
+**Texto técnico-base para adaptar à experiência real do grupo no Somativo de Flutter.**
 
 No Flutter, o Provider pode disponibilizar um estado a uma parte da árvore de widgets, enquanto no React Native usamos Context API e hooks para compartilhar sessão e biblioteca. A decisão de arquitetura é semelhante: estado usado por várias telas precisa ter uma fonte comum. Neste projeto, campos de formulário, filtro e busca continuam locais; favoritos e sessão ficam em Providers separados. O Context não elimina automaticamente renderizações: consumidores podem renderizar novamente quando seu valor muda.
 
@@ -61,24 +65,24 @@ No assincronismo, FutureBuilder permite representar estados de um Future no Flut
 
 Em ferramentas, Flutter oferece hot reload; no fluxo React Native usamos Fast Refresh, Metro e Expo. O Expo facilita a abertura do projeto quando o ambiente e o dispositivo são compatíveis. A avaliação de produtividade depende da experiência efetiva do grupo, da configuração e dos problemas encontrados, não apenas da quantidade de linhas.
 
-**Complementar antes da entrega:** [QUAL TEMA/API FOI USADO NO FLUTTER? O QUE FOI MAIS FÁCIL OU DIFÍCIL NOS DOIS TRABALHOS? UM EXEMPLO CONCRETO DO GRUPO.]
+**Complementar antes da entrega:** [QUAL TEMA/API FOI USADO NO FLUTTER? O QUE FOI MAIS FÁCIL OU DIFÍCIL NOS DOIS TRABALHOS? INCLUIR UM EXEMPLO REAL DO GRUPO.]
 
 ## Seção 5 — Explicação técnica
 
-Tema: Persistência — AsyncStorage × SecureStore × nuvem.
+Tema: Supabase Auth, Row Level Security e sincronização.
 
 Minuto planejado: 5:30 a 8:00. [CONFIRMAR O MINUTO NO VÍDEO PUBLICADO.]
 
-Arquivos: `src/services/libraryStorage.ts`, `src/services/secureStorage.ts`, `src/services/localAuth.ts` e `src/contexts/LibraryContext.tsx`.
+Início planejado: 5:30. Arquivos: `src/services/supabase.ts`, `src/services/cloudLibrary.ts`, `src/contexts/AuthContext.tsx`, `src/contexts/LibraryContext.tsx` e `supabase/migrations/001_library.sql`.
 
 ## Seção 6 — Screenshots
 
-Inserir capturas **reais**, feitas após executar o aplicativo. Não substituir por imagens desenhadas ou simulações.
+Capturas reais fornecidas pelo integrante. Elas documentam as telas; a comprovação da autenticação e do isolamento Supabase está registrada separadamente no teste automatizado.
 
 1. Login: [INSERIR]
 2. Catálogo: [INSERIR]
 3. Detalhes: [INSERIR]
-4. Busca: [INSERIR]
+4. Busca: [CAPTURA PENDENTE — não veio entre as imagens fornecidas]
 5. Favoritas: [INSERIR]
 6. Assistidas e notas: [INSERIR]
 

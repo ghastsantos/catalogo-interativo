@@ -1,7 +1,7 @@
 import { createClient, processLock } from '@supabase/supabase-js';
 import { secureStorage } from './secureStorage';
 
-const mode = process.env.EXPO_PUBLIC_AUTH_MODE ?? 'local';
+const mode = process.env.EXPO_PUBLIC_AUTH_MODE ?? 'supabase';
 const url = process.env.EXPO_PUBLIC_SUPABASE_URL;
 const key = process.env.EXPO_PUBLIC_SUPABASE_PUBLISHABLE_KEY;
 export const authMode = mode === 'supabase' ? 'supabase' : 'local';

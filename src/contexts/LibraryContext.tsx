@@ -26,6 +26,7 @@ export function LibraryProvider({ user, children }: { user: AppUser; children: R
   const [syncError, setSyncError] = useState<string | null>(null);
   const [savingCount, setSavingCount] = useState(0);
   const [syncing, setSyncing] = useState(false);
+  const [syncRetryCount, setSyncRetryCount] = useState(0);
   const [attempt, setAttempt] = useState(0);
   const [syncRevision, setSyncRevision] = useState(0);
 
@@ -48,12 +49,12 @@ export function LibraryProvider({ user, children }: { user: AppUser; children: R
             await writeLibrary(user, reconciled);
             saved = reconciled;
           } catch {
-            if (current) setSyncError('Não foi possível consultar a nuvem. Mostrando apenas os dados disponíveis neste aparelho.');
+            if (current) setSyncError('Não foi possível sincronizar com a nuvem. As alterações serão reenviadas quando a conexão voltar.');
           }
         }
         if (current) { stateRef.current = saved; setSnapshot(saved); setLoaded(true); }
       } catch {
-        if (current) setLoadError('Não foi possível abrir sua biblioteca local. Seus dados não foram sobrescritos.');
+        if (current) setLoadError('Não foi possível carregar sua biblioteca. Tente novamente.');
       }
     }
     void hydrate();
@@ -96,8 +97,12 @@ export function LibraryProvider({ user, children }: { user: AppUser; children: R
       if (!active.current) return;
       await transact((current) => reconcileLibrary(current, sent, remote));
       succeeded = true;
+      setSyncRetryCount(0);
     } catch {
-      if (active.current) setSyncError('A nuvem não respondeu. Seus dados continuam salvos neste aparelho.');
+      if (active.current) {
+        setSyncError('A nuvem não respondeu. As alterações continuam pendentes para sincronização.');
+        setSyncRetryCount((count) => count + 1);
+      }
     } finally {
       syncRunning.current = false;
       if (active.current) {
@@ -110,10 +115,11 @@ export function LibraryProvider({ user, children }: { user: AppUser; children: R
 
   const pendingRevision = snapshot.pending.map((id) => snapshot.entries[id]?.revision).join(',');
   useEffect(() => {
-    if (!loaded || (!snapshot.pending.length && syncRevision === 0)) return;
-    const timer = setTimeout(() => { void sync(); }, 600);
+    if (!loaded || (!snapshot.pending.length && !syncError && syncRevision === 0)) return;
+    const delay = syncError ? Math.min(30000, 1000 * 2 ** Math.min(syncRetryCount, 5)) : 600;
+    const timer = setTimeout(() => { void sync(); }, delay);
     return () => clearTimeout(timer);
-  }, [sync, loaded, pendingRevision, syncRevision]);
+  }, [sync, loaded, pendingRevision, syncError, syncRetryCount, syncRevision]);
   useEffect(() => {
     const listener = AppState.addEventListener('change', (state) => { if (state === 'active') void sync(); });
     return () => listener.remove();

@@ -1,6 +1,6 @@
 # Roteiro de vídeo — Entre Episódios
 
-**Duração-alvo: 8 minutos.** O vídeo deve ter entre 6 e 9 minutos e estar público no YouTube. O tema escolhido para a explicação aprofundada é **Persistência: AsyncStorage × SecureStore × nuvem**, a partir de **5:30**.
+**Duração-alvo: 8 minutos.** O vídeo deve ter entre 6 e 9 minutos e estar público no YouTube. O tema escolhido para a explicação aprofundada é **Supabase Auth, RLS e sincronização**, a partir de **5:30**.
 
 Este roteiro acompanha o código preparado, mas deve ser usado somente depois de executar o app e validar os fluxos. O tema séries/TVmaze ainda precisa ser comparado com o trabalho de Flutter do grupo. Não apresente bônus como funcionando antes de configurá-los e testá-los.
 
@@ -106,23 +106,17 @@ Foram executados 25 testes das regras de negócio; isso não substitui os testes
 
 **Aponte:** `changeLibrary`, `useLibrary`, `accessibilityLabel` e `accessibilityState`.
 
-## 5:30–8:00 — Explicação técnica: onde guardar cada dado
+## 5:30–8:00 — Explicação técnica: autenticação e sincronização seguras
 
-**Arquivos:** `src/services/libraryStorage.ts`, `src/services/secureStorage.ts`, `src/services/localAuth.ts` e `src/contexts/LibraryContext.tsx`.
+**Arquivos:** `src/services/supabase.ts`, `src/services/cloudLibrary.ts`, `src/contexts/AuthContext.tsx`, `src/contexts/LibraryContext.tsx` e `supabase/migrations/001_library.sql`.
 
-“A decisão principal foi separar os dados da biblioteca dos dados de autenticação. Eles têm necessidades diferentes.
+“O cadastro e o login são feitos pelo Supabase Auth. Depois da autenticação, cada registro da biblioteca é associado ao identificador da conta. A tabela usa o par usuário e série como chave, então cada conta mantém seus próprios favoritos, histórico e notas.
 
-Favoritas, séries assistidas e notas ficam no AsyncStorage. É uma persistência local de chave e valor, adequada para o tamanho deste trabalho. A chave inclui o provedor e o ID do usuário. Assim, duas contas no mesmo aparelho não compartilham a biblioteca por acidente.
+A segurança dos dados vem das políticas Row Level Security, ou RLS. As políticas deixam cada usuário consultar e alterar somente registros cujo user_id corresponde à própria sessão. Também negam acesso anônimo. Rodamos um teste real com duas contas: a conta A conseguiu gravar e ler a própria linha; a conta B não conseguiu ler nem alterar a linha de A.
 
-Já as informações de sessão e a conta local usam SecureStore no Android e no iOS. A senha não é salva em texto puro. No cadastro, geramos um salt aleatório e calculamos um hash com PBKDF2. No login, repetimos o cálculo e comparamos o resultado. O salt permite que senhas iguais produzam registros diferentes. Como esse login é local, ele é um recurso didático, não um substituto para autenticação de servidor.
+As mudanças são enviadas automaticamente. Se a conexão falha, o app mantém a alteração pendente e tenta novamente com intervalos crescentes. Ao voltar para o primeiro plano, também solicita uma sincronização. Não existe mais um botão manual para esse processo.
 
-Outro cuidado é a hidratação. Antes de liberar as telas, o Provider lê a biblioteca salva. Se mostrássemos uma lista vazia antes de terminar essa leitura, o usuário poderia pensar que perdeu os dados. Pior: uma gravação automática nesse momento poderia substituir a biblioteca antiga. Por isso, leitura inicial e alterações são tratadas separadamente.
-
-As gravações são colocadas em uma fila. Dois toques rápidos não podem fazer uma operação antiga terminar depois e sobrescrever uma mais recente. A interface é atualizada depois que o salvamento local termina; se ele falhar, o erro é mostrado.
-
-No navegador não existe SecureStore. A versão web usa o armazenamento do navegador e mantém essa limitação explícita. É importante não apresentar a demonstração web como se ela comprovasse o armazenamento seguro nativo.
-
-Portanto, usamos estado React para a interface, AsyncStorage para a biblioteca e SecureStore para os dados de autenticação no celular. Cada ferramenta resolve uma necessidade, sem colocar tudo no mesmo lugar.”
+Entre aparelhos, a política é a última gravação recebida pelo servidor para cada série. O mecanismo preserva uma edição feita durante uma requisição, mas não é edição colaborativa em tempo real. Para comprovar a sincronização visual, mostramos a mesma conta em dois aparelhos e depois a conta B separada.”
 
 **Fechamento:**
 
@@ -130,14 +124,6 @@ Portanto, usamos estado React para a interface, AsyncStorage para a biblioteca e
 
 Use o fechamento somente depois de publicar e completar esses itens.
 
-## Trecho opcional sobre os bônus — apenas depois de validar
-
-Para incluir este trecho sem ultrapassar nove minutos, substitua parte dos últimos parágrafos; não simplesmente acrescente uma nova apresentação longa.
-
-“No modo Supabase, o login é real e cada registro tem o ID do usuário. As políticas de Row Level Security restringem o acesso à própria conta. A biblioteca continua salva localmente: alterações sem rede ficam pendentes e são enviadas depois. Na sincronização, uma revisão impede que a resposta antiga apague uma edição nova feita neste aparelho. Em conflitos entre aparelhos, vale a última gravação recebida pelo servidor. Confirmamos o funcionamento entrando com a mesma conta em dois dispositivos e verificando que uma segunda conta não acessa esses dados.”
-
-A última frase só pode ser dita depois desse teste real. Mostre a biblioteca sincronizada e as políticas do banco; não mostre chaves. Caso o Supabase não esteja validado, retire este bloco e não reivindique os bônus.
-
 ## Conferência da gravação
 
-Assista ao vídeo completo antes de publicar. Confira áudio, nomes, duração entre 6 e 9 minutos, todos aparecendo e falando, demonstração da reabertura do app e código legível. O YouTube precisa estar **Público**, não “Não listado”. Na Seção 5 do PDF, informe: “Persistência: AsyncStorage × SecureStore × nuvem — a partir de 5:30”, ajustando o minuto ao vídeo realmente publicado.
+Assista ao vídeo completo antes de publicar. Confira áudio, nomes, duração entre 6 e 9 minutos, todos aparecendo e falando, demonstração da autenticação e da biblioteca no Supabase e código legível. O YouTube precisa estar **Público**, não “Não listado”. Na Seção 5 do PDF, informe: “Supabase Auth, RLS e sincronização — a partir de 5:30”, ajustando o minuto ao vídeo realmente publicado. Só diga que a conta A aparece em dois aparelhos depois de demonstrar esse fluxo.

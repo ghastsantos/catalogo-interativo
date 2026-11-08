@@ -25,7 +25,7 @@
     "@react-navigation/native-stack": "^7.3.28",
     "@supabase/supabase-js": "^2.57.4",
     "axios": "^1.13.2",
-    "expo": "~57.0.31",
+    "expo": "~57.0.32",
     "expo-crypto": "~57.0.4",
     "expo-secure-store": "~57.0.4",
     "expo-status-bar": "~57.0.1",

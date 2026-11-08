@@ -44,11 +44,11 @@ Os itens abaixo começam pendentes porque exigem execução real ou informação
 
 ## Bônus
 
-- [ ] Projeto Supabase provisionado e migração aplicada.
-- [ ] Confirmar e-mail, entrar e restaurar sessão real.
-- [ ] `npm run test:cloud` passa com duas contas.
+- [x] Projeto Supabase configurado e migração aplicada.
+- [x] Duas contas autenticadas; `npm run test:cloud` aprovou autenticação, leitura/gravação próprias e isolamento RLS.
 - [ ] Favoritos/assistidas sincronizados em dois dispositivos.
 - [ ] Alteração offline persiste, volta à rede e sincroniza sem perda.
+- [x] Sincronização automática e novas tentativas implementadas; o botão manual foi removido.
 - [ ] `.env` e credenciais não aparecem em commits, prints ou vídeo.
 
 ## Entrega
@@ -58,10 +58,11 @@ Os itens abaixo começam pendentes porque exigem execução real ou informação
 - [ ] Vídeo YouTube **público**, com 6–9 minutos; todos aparecem e falam.
 - [ ] Nome completo de TODOS os integrantes na capa e na apresentação.
 - [ ] Disciplina, turma e data preenchidas.
-- [ ] Links de GitHub e YouTube conferidos fora da sua sessão.
+- [x] Link do GitHub público confirmado.
+- [x] Link do vídeo recebido; confirmar visibilidade Pública e duração.
 - [ ] Seis seções do PDF, incluindo tabela RF e comparação real com Flutter.
-- [ ] Seis screenshots reais: login, catálogo, detalhes, busca, favoritas, assistidas.
+- [ ] Captura da busca; as seis imagens recebidas incluem cadastro, login, catálogo, detalhes, favoritas e assistidas.
 - [ ] Tema técnico e minuto do vídeo indicados.
 - [ ] PDF final enviado pelo campo oficial, não por comentário.
 
-O enunciado informa prazo de 02/11/2026. Confira o horário exato no sistema da universidade; não foi informado nesta conversa.
+O prazo anotado nos documentos é 02/11/2026 e já passou. Confirme com a disciplina como registrar a entrega atrasada.

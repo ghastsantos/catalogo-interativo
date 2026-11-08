@@ -1,29 +1,31 @@
-# Registro de validação — 02/11/2026
+# Registro de validação — 08/11/2026
 
-## Executado neste ambiente
+## Aprovado neste ambiente
 
-- Compilação estrita do domínio com TypeScript 5.8.3 disponível no ambiente: **aprovada**. O projeto declara TypeScript 6.0.3, cujo pacote ainda não pôde ser instalado.
-- `node scripts/test.cjs`, usando o TypeScript disponível no ambiente: **25 testes; 25 passaram; 0 falharam**.
-- Análise sintática/transpilação isolada de 31 arquivos `.ts`/`.tsx`: **sem erros sintáticos**.
-- Conferência de imports relativos: **nenhum arquivo ausente**.
-- Cálculo de contraste de seis pares estáticos de cores: aprovados nos limites de texto (4,5:1) e borda (3:1); valores em `contraste-pares-estaticos.json`. Isso não é auditoria da interface renderizada.
-- Revisão estática do SQL, isolamento por usuário, cancelamento de requisições e caminhos dos RF.
+- `npm run check`: TypeScript completo aprovado; 25 testes de domínio aprovados.
+- `npm run export:web`: bundle Web gerado.
+- `npx expo export --platform android`: bundle Android gerado anteriormente, antes da última alteração visual e de retry automático.
+- `npm run test:cloud`: aprovado com duas contas. A conta A autenticou, gravou e leu sua linha; a conta B não leu nem alterou a linha de A; o acesso anônimo foi negado. O script remove a linha sintética de teste.
+- Repositório GitHub público confirmado: `https://github.com/ghastsantos/catalogo-interativo`.
+- Testes de domínio cobrem paginação, busca, validação, favoritos, notas, serialização e conciliação de alterações concorrentes.
 
-Os testes verificam deduplicação de páginas, filtro, limpeza de HTML, validação de credenciais, comparação de bytes, favoritas, assistidas, notas, serialização, validação dos dados persistidos, conciliação remota e preservação de uma edição durante a sincronização.
+## Implementado, falta conferir visualmente
 
-## Tentado, mas bloqueado
+- Login Supabase como configuração padrão do app.
+- Sincronização automática da biblioteca e novas tentativas com espera crescente após falhas.
+- Removido o botão manual de sincronização.
+- Textos da tela de login e status atualizados para a experiência Supabase.
 
-A consulta ao registro npm falhou com `Could not resolve host: registry.npmjs.org`. A ferramenta alternativa de download também falhou. Sem os pacotes, não foi possível executar Metro, a aplicação ou uma compilação completa usando os tipos reais das dependências.
+## Ainda depende de demonstração pelo usuário
 
-## Ainda não executado
+- Abrir o app no aparelho/navegador com a conta Supabase e validar os fluxos de catálogo, busca, detalhes, favoritas e assistidas.
+- Confirmar a mesma conta em dois aparelhos e demonstrar a biblioteca sincronizada.
+- Testar uma alteração sem rede e confirmar o reenvio automático depois de reconectar.
+- TalkBack/VoiceOver, fonte ampliada e leitor de tela.
+- Capturas finais no modo Supabase; as imagens anteriores mostram a versão local e incluem endereço de e-mail pessoal.
+- Link público do vídeo e sua duração real.
+- Comparação com o Somativo de Flutter, que depende de confirmar o tema e a experiência do grupo.
 
-- `npm install` / geração do lockfile.
-- `npm run typecheck` sobre o aplicativo completo.
-- `npx expo install --check` e exportação dos bundles web/Android.
-- Abertura no Expo Go, emulador ou aparelho real.
-- Testes de interface, rolagem, gesto de refresh e telas com rede real.
-- TalkBack, VoiceOver, auditoria do contraste na interface renderizada e fonte do sistema ampliada.
-- Autenticação real, banco Supabase e teste de RLS com duas contas.
-- Pipeline GitHub Actions: arquivo preparado, mas sem execução remota.
+## Limites das verificações
 
-**Conclusão:** há código e testes de domínio, não uma certificação de funcionamento de ponta a ponta. Não afirmar que o app foi testado no celular nem que os bônus estão ativos. Consulte o checklist e atualize este relatório após cada teste real.
+Bundle Web e bundle Android aprovam compilação; não substituem a abertura e navegação em aparelho real. O teste RLS prova autenticação e isolamento de linhas; não prova a experiência visual de sincronização entre dispositivos nem o comportamento sem rede.
