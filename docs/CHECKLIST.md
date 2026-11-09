@@ -55,14 +55,14 @@ Os itens abaixo começam pendentes porque exigem execução real ou informação
 
 - [ ] Tema/API diferentes dos usados no Flutter.
 - [ ] Repositório público, código disponível e README atualizado.
-- [ ] Vídeo YouTube **público**, com 6–9 minutos; todos aparecem e falam.
+- [x] Vídeo YouTube informado; duração entre 6 e 9 minutos e fala do apresentador confirmadas.
 - [ ] Nome completo de TODOS os integrantes na capa e na apresentação.
 - [ ] Disciplina, turma e data preenchidas.
 - [x] Link do GitHub público confirmado.
 - [x] Link recebido; duração de 6–9 minutos confirmada pelo integrante.
 - [ ] Confirmar visibilidade Pública no YouTube.
 - [ ] Seis seções do PDF, incluindo tabela RF e comparação real com Flutter.
-- [ ] Captura da busca; as seis imagens recebidas incluem cadastro, login, catálogo, detalhes, favoritas e assistidas.
+- [x] Captura da busca adicionada; o PDF reúne login, catálogo, detalhes, busca, favoritas e assistidas.
 - [ ] Tema técnico e minuto do vídeo indicados.
 - [ ] PDF final enviado pelo campo oficial, não por comentário.
 

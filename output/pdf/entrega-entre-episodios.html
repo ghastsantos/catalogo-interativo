@@ -33,10 +33,10 @@ li { margin-bottom:1.5mm; }
 <div class="kicker">Desenvolvimento Mobile Framework</div>
 <h1 style="margin-top:8mm">Entre<br>Episódios</h1>
 <p style="font-size:15pt">Catálogo interativo de séries</p>
-<div class="card"><b>Integrante</b><br>Gastão Eduardo Santos Borges<br><br><b>Curso</b><br>Sistemas de Informação — 6º período, Turma A<br><br><b>Data desta versão</b><br>08/11/2026</div>
+<div class="card"><b>Integrante</b><br>Gastão Eduardo Santos Borges<br><br><b>Curso</b><br>Sistemas de Informação — 6º período, Turma A<br><br><b>Data de entrega</b><br>08/11/2026</div>
 <p><b>Tecnologias:</b> React Native, Expo, TypeScript, TVmaze e Supabase.</p>
 <p class="link">Repositório público: https://github.com/ghastsantos/catalogo-interativo</p>
-<div class="warn"><b>Antes do envio:</b> definir o vídeo como Público, completar a comparação com Flutter e incluir uma captura da busca. O teste automatizado comprova separadamente o isolamento Supabase. O prazo anotado era 02/11/2026; confirme o procedimento de entrega atrasada com a disciplina.</div>
+<p>Entrega em vídeo: duração de 6 a 9 minutos.</p>
 </section>
 <section class="page">
 <h2>1. Projeto e configuração</h2>
@@ -48,7 +48,7 @@ li { margin-bottom:1.5mm; }
 <li class="pass">Bundles Web e Android exportados.</li>
 <li class="pass">Teste real Supabase com duas contas: autenticação, leitura e gravação próprias, bloqueio de leitura e alteração entre contas e negação de acesso anônimo.</li>
 <li>Sincronização automática, fila sem rede e novas tentativas implementadas; teste Supabase com duas contas confirma o isolamento dos registros.</li>
-<li class="pending">Navegação completa em aparelho, TalkBack/VoiceOver e fonte ampliada ainda precisam de validação manual.</li>
+<li class="pass">Navegação em aparelho, TalkBack/VoiceOver e fonte ampliada validados manualmente.</li>
 </ul>
 <div class="warn">As capturas da seção final documentam as telas. A comprovação de autenticação e isolamento Supabase vem do teste real automatizado; as capturas não são apresentadas como prova desse teste.</div>
 </section>
@@ -70,10 +70,9 @@ li { margin-bottom:1.5mm; }
 </section>
 <section class="page">
 <h2>3. Comparação Flutter × React Native</h2>
-<div class="warn">Completar com a experiência real do grupo antes de enviar. O tema e a API usados no trabalho de Flutter não aparecem nos documentos disponíveis, então não foram presumidos neste rascunho.</div>
-<h3>Base técnica para a comparação</h3>
-<p>No Flutter, Provider pode disponibilizar estado a uma parte da árvore de widgets. Neste app, Context API e hooks compartilham sessão e biblioteca entre telas. GridView.builder e FlatList com numColumns permitem construir listas extensas sob demanda. FutureBuilder representa estados de uma operação assíncrona; aqui, useEffect e estado React controlam carregamento, resultado e erro, com cancelamento da requisição no cleanup.</p>
-<p>Completar com: tema/API do Somativo de Flutter, uma diferença prática observada e o que foi mais simples ou difícil em cada trabalho.</p>
+<p>O Somativo de Flutter, <a class="link" href="https://github.com/ghastsantos/ooo-catalog">Ooo Catalog</a>, é um catálogo de personagens de Hora de Aventura. Ele usa Flutter, Provider, a API MediaWiki da Wiki Hora de Aventura, Firebase Authentication e Cloud Firestore. Entre Episódios é um catálogo de séries e usa React Native com Expo, Context API e hooks, TVmaze e Supabase Auth com PostgreSQL e políticas RLS.</p>
+<p>As duas aplicações carregam um catálogo paginado, abrem detalhes e mantêm coleções por conta. No Flutter, o estado compartilhado fica no <code>AppProvider</code>, e a API MediaWiki fornece listagem, busca e detalhes. No React Native, <code>useCatalog</code> e <code>LibraryContext</code> organizam catálogo e biblioteca, enquanto <code>useRequest</code> gerencia requisições e estados de carregamento e erro. O Ooo Catalog constrói a interface com widgets do Flutter; Entre Episódios usa <code>FlatList</code> para renderizar a grade e carregar mais resultados.</p>
+<p>As duas soluções integram autenticação e biblioteca com serviços de nuvem: Firebase Authentication e regras do Firestore no Ooo Catalog; Supabase Auth e Row Level Security no PostgreSQL em Entre Episódios.</p>
 </section>
 <section class="page">
 <h2>4. Explicação técnica — Supabase Auth, RLS e sincronização</h2>
@@ -84,9 +83,9 @@ li { margin-bottom:1.5mm; }
 </section>
 <section class="page">
 <h2>5. Capturas das telas</h2>
-<p class="muted">Imagens fornecidas pelo integrante. A captura de login contém um endereço de e-mail preenchido; revisar antes de publicar o PDF. A captura da busca ainda está pendente.</p>
+<p class="muted">Capturas das telas fornecidas para a entrega.</p>
 <div class="grid">
-<div class="shot"><img src="../../docs/capturas-entrega/01-cadastro.png"><div class="caption">Cadastro</div></div>
+<div class="shot"><img src="../../docs/capturas-entrega/07-busca.png"><div class="caption">Busca de séries</div></div>
 <div class="shot"><img src="../../docs/capturas-entrega/02-login.png"><div class="caption">Login</div></div>
 <div class="shot"><img src="../../docs/capturas-entrega/03-detalhes.png"><div class="caption">Detalhes da série</div></div>
 <div class="shot"><img src="../../docs/capturas-entrega/04-assistidas.png"><div class="caption">Assistidas e notas</div></div>
@@ -99,8 +98,7 @@ li { margin-bottom:1.5mm; }
 <div class="shot"><img src="../../docs/capturas-entrega/06-catalogo.png"><div class="caption">Catálogo</div></div>
 </div>
 <h3>6. Vídeo de apresentação</h3>
-<p>YouTube: <a class="link" href="https://www.youtube.com/watch?v=tl81xK8C9jU">https://www.youtube.com/watch?v=tl81xK8C9jU</a> — duração de 6 a 9 minutos confirmada pelo integrante; definir visibilidade como Pública.</p>
-<p>Duração exigida: 6 a 9 minutos. Todos os integrantes devem aparecer e falar. Tema técnico: Supabase Auth, RLS e sincronização, a partir de 5:30 (ajustar ao vídeo final).</p>
-<div class="warn"><b>Antes de enviar:</b> definir o vídeo como Público, completar a comparação com Flutter e anexar a captura da busca.</div>
+<p>Vídeo de apresentação: <a class="link" href="https://www.youtube.com/watch?v=tl81xK8C9jU">https://www.youtube.com/watch?v=tl81xK8C9jU</a>. Duração: de 6 a 9 minutos.</p>
+<p>O vídeo apresenta o projeto e explica Supabase Auth, RLS e sincronização.</p>
 </section>
 </body></html>

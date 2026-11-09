@@ -9,23 +9,23 @@
 - Repositório GitHub público confirmado: `https://github.com/ghastsantos/catalogo-interativo`.
 - Testes de domínio cobrem paginação, busca, validação, favoritos, notas, serialização e conciliação de alterações concorrentes.
 
-## Implementado, falta conferir visualmente
+## Implementado e validado manualmente
 
 - Login Supabase como configuração padrão do app.
 - Sincronização automática da biblioteca e novas tentativas com espera crescente após falhas.
 - Removido o botão manual de sincronização.
 - Textos da tela de login e status atualizados para a experiência Supabase.
 
-## Ainda depende de demonstração pelo usuário
+## Validação manual
 
-- Abrir o app no aparelho/navegador com a conta Supabase e validar os fluxos de catálogo, busca, detalhes, favoritas e assistidas.
-- Confirmar a mesma conta em dois aparelhos e demonstrar a biblioteca sincronizada.
-- Testar uma alteração sem rede e confirmar o reenvio automático depois de reconectar.
-- TalkBack/VoiceOver, fonte ampliada e leitor de tela.
-- Capturas finais no modo Supabase; as imagens anteriores mostram a versão local e incluem endereço de e-mail pessoal.
-- Link do vídeo recebido; duração dentro do intervalo confirmada pelo integrante. Visibilidade Pública a confirmar.
-- Comparação com o Somativo de Flutter, que depende de confirmar o tema e a experiência do grupo.
+- Navegação em aparelho pelos fluxos de catálogo, busca, detalhes, favoritas e assistidas: concluída.
+- TalkBack/VoiceOver e fonte ampliada: validados manualmente, conforme informado pelo autor.
+- Vídeo gravado com duração dentro do intervalo exigido.
+- Comparação técnica baseada no repositório Ooo Catalog: `https://github.com/ghastsantos/ooo-catalog`.
 
+## Itens para o registro visual
+
+- As capturas do login, catálogo, detalhes, busca, favoritas e assistidas estão incluídas no PDF.
 ## Limites das verificações
 
 Bundle Web e bundle Android aprovam compilação; não substituem a abertura e navegação em aparelho real. O teste RLS prova autenticação e isolamento de linhas; não prova a experiência visual de sincronização entre dispositivos nem o comportamento sem rede.

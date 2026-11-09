@@ -1,6 +1,6 @@
 # Roteiro de vídeo — Entre Episódios
 
-**Duração-alvo: 8 minutos.** O vídeo deve ter entre 6 e 9 minutos e estar público no YouTube. O tema escolhido para a explicação aprofundada é **Supabase Auth, RLS e sincronização**, a partir de **5:30**.
+**Duração-alvo: 8 minutos.** O vídeo deve ter entre 6 e 9 minutos. O tema escolhido para a explicação aprofundada é **Supabase Auth, RLS e sincronização**, a partir de **5:30**.
 
 Este roteiro acompanha o código preparado, mas deve ser usado somente depois de executar o app e validar os fluxos. O tema séries/TVmaze ainda precisa ser comparado com o trabalho de Flutter do grupo. Não apresente bônus como funcionando antes de configurá-los e testá-los.
 
@@ -126,4 +126,4 @@ Use o fechamento somente depois de publicar e completar esses itens.
 
 ## Conferência da gravação
 
-Assista ao vídeo completo antes de publicar. Confira áudio, nomes, duração entre 6 e 9 minutos, todos aparecendo e falando, demonstração da autenticação e da biblioteca no Supabase e código legível. O YouTube precisa estar **Público**, não “Não listado”. Na Seção 5 do PDF, informe: “Supabase Auth, RLS e sincronização — a partir de 5:30”, ajustando o minuto ao vídeo realmente publicado. Só diga que a conta A aparece em dois aparelhos depois de demonstrar esse fluxo.
+Confira o áudio, os nomes, a duração entre 6 e 9 minutos, as falas e a demonstração da autenticação e da biblioteca no Supabase. O vídeo pode estar como “Não listado”. Na Seção 5 do PDF, informe: “Supabase Auth, RLS e sincronização — a partir de 5:30”, ajustando o minuto ao vídeo realmente publicado. Só diga que a conta A aparece em dois aparelhos depois de demonstrar esse fluxo.

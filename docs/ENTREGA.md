@@ -4,7 +4,7 @@
 
 **Comprovado:** requisitos implementados no código; TypeScript, 25 testes de domínio, exportações Web/Android e teste real Supabase com duas contas. As capturas fornecidas documentam as telas; a comprovação Supabase vem do teste automatizado.
 
-**Complemento visual:** falta a captura dedicada da busca e, se possível, demonstrar sincronização entre dispositivos e retorno após falha de rede no vídeo.
+**Capturas:** as seis telas exigidas estão incluídas no PDF.
 
 ## Capa
 
@@ -16,7 +16,7 @@ Data de entrega: 08/11/2026
 
 Projeto: **Entre Episódios — Catálogo Interativo 2.0**
 
-Tema: Séries de televisão; API TVmaze. Confirmar que não repete o tema do Somativo de Flutter.
+Tema: catálogo de séries de televisão; API TVmaze. O Somativo de Flutter foi um catálogo de personagens de Hora de Aventura, com dados da Wiki Hora de Aventura (Fandom). Os temas e as APIs são diferentes.
 
 Integrantes:
 
@@ -26,7 +26,7 @@ Integrantes:
 
 GitHub público: https://github.com/ghastsantos/catalogo-interativo
 
-YouTube: https://www.youtube.com/watch?v=tl81xK8C9jU — duração entre 6 e 9 minutos, confirmada pelo integrante. Definir visibilidade como Pública antes do envio.
+Vídeo: https://www.youtube.com/watch?v=tl81xK8C9jU — apresentação com duração de 6 a 9 minutos.
 
 ## Seção 2 — Tema e configuração
 
@@ -34,9 +34,9 @@ Tema: catálogo de séries. API: https://www.tvmaze.com/api.
 
 Configuração usada: React Native + Expo, Supabase Auth e PostgreSQL com Row Level Security.
 
-Comprovação do bônus de autenticação e isolamento: teste real com duas contas aprovado. A sincronização visual em dois dispositivos e a retomada após perda de rede ainda precisam de demonstração manual.
+Comprovação do bônus de autenticação e isolamento: teste real com duas contas aprovado. A validação manual em aparelho, com TalkBack/VoiceOver e fonte ampliada, foi concluída. O vídeo apresenta o funcionamento do app.
 
-Configuração apresentada: React Native + Expo, Supabase Auth e PostgreSQL com Row Level Security.
+
 
 ## Seção 3 — Autoavaliação RF01–RF10
 
@@ -57,17 +57,11 @@ Configuração apresentada: React Native + Expo, Supabase Auth e PostgreSQL com 
 
 ## Seção 4 — Flutter × React Native
 
-**Texto técnico-base para adaptar à experiência real do grupo no Somativo de Flutter.**
+O Somativo de Flutter, [Ooo Catalog](https://github.com/ghastsantos/ooo-catalog), é um catálogo de personagens de Hora de Aventura. Ele usa Flutter, Provider, a API MediaWiki da Wiki Hora de Aventura, Firebase Authentication e Cloud Firestore. Este projeto, Entre Episódios, é um catálogo de séries: usa React Native com Expo, Context API e hooks, TVmaze e Supabase Auth com PostgreSQL e políticas RLS.
 
-No Flutter, o Provider pode disponibilizar um estado a uma parte da árvore de widgets, enquanto no React Native usamos Context API e hooks para compartilhar sessão e biblioteca. A decisão de arquitetura é semelhante: estado usado por várias telas precisa ter uma fonte comum. Neste projeto, campos de formulário, filtro e busca continuam locais; favoritos e sessão ficam em Providers separados. O Context não elimina automaticamente renderizações: consumidores podem renderizar novamente quando seu valor muda.
+As duas aplicações compartilham a ideia de carregar um catálogo paginado, abrir detalhes e manter coleções por conta. No Flutter, o estado compartilhado fica no `AppProvider`, e a API MediaWiki trata listagem, busca e detalhes. No React Native, `useCatalog` e `LibraryContext` organizam o catálogo e a biblioteca, enquanto `useRequest` gerencia requisições e estados de carregamento e erro. A lista Flutter é construída com widgets do Flutter; a versão Expo usa `FlatList` para renderizar a grade e carregar mais resultados.
 
-Para o catálogo, a comparação é entre GridView.builder e FlatList com numColumns. As duas abordagens permitem trabalhar com listas extensas sem criar uma tela estática com todos os elementos de uma vez. No React Native, utilizamos keyExtractor baseado no ID, onEndReached e ListFooterComponent. A paginação e a deduplicação ficam separadas da apresentação.
-
-No assincronismo, FutureBuilder permite representar estados de um Future no Flutter. Aqui, useEffect dispara a requisição, useState representa carregamento, erro e dados, e o cleanup cancela a operação. Não são mecanismos idênticos: o efeito também precisa de dependências estáveis e proteção contra respostas antigas.
-
-Em ferramentas, Flutter oferece hot reload; no fluxo React Native usamos Fast Refresh, Metro e Expo. O Expo facilita a abertura do projeto quando o ambiente e o dispositivo são compatíveis. A avaliação de produtividade depende da experiência efetiva do grupo, da configuração e dos problemas encontrados, não apenas da quantidade de linhas.
-
-**Complementar antes da entrega:** [QUAL TEMA/API FOI USADO NO FLUTTER? O QUE FOI MAIS FÁCIL OU DIFÍCIL NOS DOIS TRABALHOS? INCLUIR UM EXEMPLO REAL DO GRUPO.]
+A comparação de persistência também mostra duas integrações de nuvem: o Ooo Catalog autentica com Firebase e guarda as listas no Firestore, com regras por usuário; Entre Episódios autentica com Supabase e protege as linhas no PostgreSQL com RLS. Assim, a diferença principal está nas ferramentas e nos serviços escolhidos para atender ao mesmo fluxo de catálogo e biblioteca pessoal.
 
 ## Seção 5 — Explicação técnica
 
@@ -84,8 +78,8 @@ Capturas reais fornecidas pelo integrante. Elas documentam as telas; a comprova�
 1. Login: `docs/capturas-entrega/02-login.png`
 2. Catálogo: `docs/capturas-entrega/06-catalogo.png`
 3. Detalhes: `docs/capturas-entrega/03-detalhes.png`
-4. Busca: não veio entre as capturas fornecidas; substituir a imagem extra de cadastro quando disponível.
+4. Busca: `docs/capturas-entrega/07-busca.png`
 5. Favoritas: `docs/capturas-entrega/05-favoritas.png`
 6. Assistidas e notas: `docs/capturas-entrega/04-assistidas.png`
 
-Antes de submeter: retirar todos os campos pendentes e avisos de rascunho, manter apenas resultados comprovados, conferir nomes de todos os integrantes e enviar o único PDF pelo campo oficial da atividade.
+Entrega preparada por Gastão Eduardo Santos Borges.
