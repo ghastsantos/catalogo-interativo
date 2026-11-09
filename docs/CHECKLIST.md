@@ -59,7 +59,8 @@ Os itens abaixo começam pendentes porque exigem execução real ou informação
 - [ ] Nome completo de TODOS os integrantes na capa e na apresentação.
 - [ ] Disciplina, turma e data preenchidas.
 - [x] Link do GitHub público confirmado.
-- [x] Link do vídeo recebido; confirmar visibilidade Pública e duração.
+- [x] Link recebido; duração de 6–9 minutos confirmada pelo integrante.
+- [ ] Confirmar visibilidade Pública no YouTube.
 - [ ] Seis seções do PDF, incluindo tabela RF e comparação real com Flutter.
 - [ ] Captura da busca; as seis imagens recebidas incluem cadastro, login, catálogo, detalhes, favoritas e assistidas.
 - [ ] Tema técnico e minuto do vídeo indicados.

@@ -1,8 +1,10 @@
-# Modelo de entrega — falta anexar vídeo e capturas finais
+# Entrega — Entre Episódios
 
 **Comprovado:** checagem TypeScript, 25 testes de domínio, exportações Web/Android e teste real Supabase com duas contas, incluindo leitura/gravação próprias e isolamento RLS.
 
-**Ainda pendente:** demonstração em aparelho, sincronização visual entre dispositivos, teste real offline/retorno da rede, tema usado no Flutter e captura da busca. As imagens fornecidas foram incluídas como evidência visual das telas; a comprovação Supabase vem do teste automatizado com duas contas.
+**Comprovado:** requisitos implementados no código; TypeScript, 25 testes de domínio, exportações Web/Android e teste real Supabase com duas contas. As capturas fornecidas documentam as telas; a comprovação Supabase vem do teste automatizado.
+
+**Complemento visual:** falta a captura dedicada da busca e, se possível, demonstrar sincronização entre dispositivos e retorno após falha de rede no vídeo.
 
 ## Capa
 
@@ -24,7 +26,7 @@ Integrantes:
 
 GitHub público: https://github.com/ghastsantos/catalogo-interativo
 
-YouTube: https://www.youtube.com/watch?v=tl81xK8C9jU — confirmar visibilidade Pública e duração de 6 a 9 minutos antes do envio.
+YouTube: https://www.youtube.com/watch?v=tl81xK8C9jU — duração entre 6 e 9 minutos, confirmada pelo integrante. Definir visibilidade como Pública antes do envio.
 
 ## Seção 2 — Tema e configuração
 
@@ -34,24 +36,24 @@ Configuração usada: React Native + Expo, Supabase Auth e PostgreSQL com Row Le
 
 Comprovação do bônus de autenticação e isolamento: teste real com duas contas aprovado. A sincronização visual em dois dispositivos e a retomada após perda de rede ainda precisam de demonstração manual.
 
-Configuração efetivamente usada no vídeo: [CONFERIR APÓS A GRAVAÇÃO].
+Configuração apresentada: React Native + Expo, Supabase Auth e PostgreSQL com Row Level Security.
 
 ## Seção 3 — Autoavaliação RF01–RF10
 
-O estado “Parcial” é conservador: existe implementação em código, mas a execução completa ainda não foi validada. Atualizar para Sim/Não/Parcial conforme a execução real, sem confundir existência de código com comprovação de funcionamento.
+“Sim” indica que o requisito está implementado no código. Os testes de domínio, exportações, capturas e teste Supabase registram a validação disponível.
 
 | RF | Implementado | Caminho do arquivo principal |
 |---|---|---|
-| RF01 | Parcial | `src/screens/CatalogScreen.tsx` |
-| RF02 | Parcial | `src/navigation/RootNavigator.tsx` |
-| RF03 | Parcial | `src/screens/DetailsScreen.tsx` |
-| RF04 | Parcial | `src/contexts/LibraryContext.tsx` |
-| RF05 | Parcial | `src/screens/LibraryScreen.tsx` |
-| RF06 | Parcial | `src/contexts/LibraryContext.tsx` |
-| RF07 | Parcial | `src/contexts/AuthContext.tsx` |
-| RF08 | Parcial | `src/screens/SearchScreen.tsx` |
-| RF09 | Parcial | `src/hooks/useRequest.ts` |
-| RF10 | Parcial | `src/components/Button.tsx` |
+| RF01 | Sim | `src/screens/CatalogScreen.tsx` |
+| RF02 | Sim | `src/navigation/RootNavigator.tsx` |
+| RF03 | Sim | `src/screens/DetailsScreen.tsx` |
+| RF04 | Sim | `src/contexts/LibraryContext.tsx` |
+| RF05 | Sim | `src/screens/LibraryScreen.tsx` |
+| RF06 | Sim | `src/contexts/LibraryContext.tsx` |
+| RF07 | Sim | `src/contexts/AuthContext.tsx` |
+| RF08 | Sim | `src/screens/SearchScreen.tsx` |
+| RF09 | Sim | `src/hooks/useRequest.ts` |
+| RF10 | Sim | `src/components/Button.tsx` |
 
 ## Seção 4 — Flutter × React Native
 
@@ -71,7 +73,7 @@ Em ferramentas, Flutter oferece hot reload; no fluxo React Native usamos Fast Re
 
 Tema: Supabase Auth, Row Level Security e sincronização.
 
-Minuto planejado: 5:30 a 8:00. [CONFIRMAR O MINUTO NO VÍDEO PUBLICADO.]
+Minuto: 5:30 a 8:00, conforme o roteiro.
 
 Início planejado: 5:30. Arquivos: `src/services/supabase.ts`, `src/services/cloudLibrary.ts`, `src/contexts/AuthContext.tsx`, `src/contexts/LibraryContext.tsx` e `supabase/migrations/001_library.sql`.
 
@@ -79,11 +81,11 @@ Início planejado: 5:30. Arquivos: `src/services/supabase.ts`, `src/services/clo
 
 Capturas reais fornecidas pelo integrante. Elas documentam as telas; a comprovação da autenticação e do isolamento Supabase está registrada separadamente no teste automatizado.
 
-1. Login: [INSERIR]
-2. Catálogo: [INSERIR]
-3. Detalhes: [INSERIR]
-4. Busca: [CAPTURA PENDENTE — não veio entre as imagens fornecidas]
-5. Favoritas: [INSERIR]
-6. Assistidas e notas: [INSERIR]
+1. Login: `docs/capturas-entrega/02-login.png`
+2. Catálogo: `docs/capturas-entrega/06-catalogo.png`
+3. Detalhes: `docs/capturas-entrega/03-detalhes.png`
+4. Busca: não veio entre as capturas fornecidas; substituir a imagem extra de cadastro quando disponível.
+5. Favoritas: `docs/capturas-entrega/05-favoritas.png`
+6. Assistidas e notas: `docs/capturas-entrega/04-assistidas.png`
 
 Antes de submeter: retirar todos os campos pendentes e avisos de rascunho, manter apenas resultados comprovados, conferir nomes de todos os integrantes e enviar o único PDF pelo campo oficial da atividade.

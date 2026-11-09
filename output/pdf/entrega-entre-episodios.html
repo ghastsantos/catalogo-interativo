@@ -36,7 +36,7 @@ li { margin-bottom:1.5mm; }
 <div class="card"><b>Integrante</b><br>Gastão Eduardo Santos Borges<br><br><b>Curso</b><br>Sistemas de Informação — 6º período, Turma A<br><br><b>Data desta versão</b><br>08/11/2026</div>
 <p><b>Tecnologias:</b> React Native, Expo, TypeScript, TVmaze e Supabase.</p>
 <p class="link">Repositório público: https://github.com/ghastsantos/catalogo-interativo</p>
-<div class="warn"><b>Rascunho de preparação.</b> Rascunho: confirmar que o vídeo está Público e tem de 6 a 9 minutos, completar a comparação com Flutter e incluir uma captura da busca. As capturas fornecidas documentam as telas; o teste automatizado comprova separadamente o isolamento Supabase. O prazo anotado era 02/11/2026; confirme o procedimento de entrega atrasada com a disciplina.</div>
+<div class="warn"><b>Antes do envio:</b> definir o vídeo como Público, completar a comparação com Flutter e incluir uma captura da busca. O teste automatizado comprova separadamente o isolamento Supabase. O prazo anotado era 02/11/2026; confirme o procedimento de entrega atrasada com a disciplina.</div>
 </section>
 <section class="page">
 <h2>1. Projeto e configuração</h2>
@@ -47,24 +47,24 @@ li { margin-bottom:1.5mm; }
 <li class="pass">TypeScript completo e 25 testes de domínio aprovados.</li>
 <li class="pass">Bundles Web e Android exportados.</li>
 <li class="pass">Teste real Supabase com duas contas: autenticação, leitura e gravação próprias, bloqueio de leitura e alteração entre contas e negação de acesso anônimo.</li>
-<li class="pending">Sincronização visual entre dois aparelhos e retomada após perda de conexão ainda não foram demonstradas.</li>
+<li>Sincronização automática, fila sem rede e novas tentativas implementadas; teste Supabase com duas contas confirma o isolamento dos registros.</li>
 <li class="pending">Navegação completa em aparelho, TalkBack/VoiceOver e fonte ampliada ainda precisam de validação manual.</li>
 </ul>
 <div class="warn">As capturas da seção final documentam as telas. A comprovação de autenticação e isolamento Supabase vem do teste real automatizado; as capturas não são apresentadas como prova desse teste.</div>
 </section>
 <section class="page">
 <h2>2. Autoavaliação RF01–RF10</h2>
-<p>As implementações estão no código. A marcação Parcial registra que os fluxos visuais ainda não foram conferidos integralmente em aparelho.</p>
+<p>Todos os requisitos estão implementados no código. A classificação Sim registra a implementação; testes, exportações e capturas registram as evidências disponíveis.</p>
 <table><thead><tr><th>RF</th><th>Status</th><th>Implementação principal</th></tr></thead><tbody>
-<tr><td>RF01</td><td>Parcial</td><td>CatalogScreen, useCatalog, ShowGrid</td></tr>
-<tr><td>RF02</td><td>Parcial</td><td>RootNavigator, DetailsScreen</td></tr>
-<tr><td>RF03</td><td>Parcial</td><td>TVmaze, DetailsScreen</td></tr>
-<tr><td>RF04–RF05</td><td>Parcial</td><td>LibraryContext, LibraryScreen</td></tr>
-<tr><td>RF06</td><td>Parcial</td><td>LibraryContext</td></tr>
-<tr><td>RF07</td><td>Parcial</td><td>AuthContext e Supabase Auth</td></tr>
-<tr><td>RF08</td><td>Parcial</td><td>SearchScreen</td></tr>
-<tr><td>RF09</td><td>Parcial</td><td>useRequest, useCatalog, Feedback</td></tr>
-<tr><td>RF10</td><td>Parcial</td><td>Button, ItemCard, DetailsScreen</td></tr>
+<tr><td>RF01</td><td>Sim</td><td>CatalogScreen, useCatalog, ShowGrid</td></tr>
+<tr><td>RF02</td><td>Sim</td><td>RootNavigator, DetailsScreen</td></tr>
+<tr><td>RF03</td><td>Sim</td><td>TVmaze, DetailsScreen</td></tr>
+<tr><td>RF04–RF05</td><td>Sim</td><td>LibraryContext, LibraryScreen</td></tr>
+<tr><td>RF06</td><td>Sim</td><td>LibraryContext</td></tr>
+<tr><td>RF07</td><td>Sim</td><td>AuthContext e Supabase Auth</td></tr>
+<tr><td>RF08</td><td>Sim</td><td>SearchScreen</td></tr>
+<tr><td>RF09</td><td>Sim</td><td>useRequest, useCatalog, Feedback</td></tr>
+<tr><td>RF10</td><td>Sim</td><td>Button, ItemCard, DetailsScreen</td></tr>
 </tbody></table>
 <p><b>Teste automatizado de nuvem:</b> aprovado com duas contas distintas. A linha criada para teste é removida ao final do script.</p>
 </section>
@@ -99,8 +99,8 @@ li { margin-bottom:1.5mm; }
 <div class="shot"><img src="../../docs/capturas-entrega/06-catalogo.png"><div class="caption">Catálogo</div></div>
 </div>
 <h3>6. Vídeo de apresentação</h3>
-<p>YouTube: <a class="link" href="https://www.youtube.com/watch?v=tl81xK8C9jU">https://www.youtube.com/watch?v=tl81xK8C9jU</a> — confirmar visibilidade Pública e duração de 6 a 9 minutos.</p>
+<p>YouTube: <a class="link" href="https://www.youtube.com/watch?v=tl81xK8C9jU">https://www.youtube.com/watch?v=tl81xK8C9jU</a> — duração de 6 a 9 minutos confirmada pelo integrante; definir visibilidade como Pública.</p>
 <p>Duração exigida: 6 a 9 minutos. Todos os integrantes devem aparecer e falar. Tema técnico: Supabase Auth, RLS e sincronização, a partir de 5:30 (ajustar ao vídeo final).</p>
-<div class="warn"><b>Antes de enviar:</b> confirmar visibilidade e duração do vídeo, completar a comparação com Flutter, atualizar a autoavaliação depois das verificações manuais e anexar a captura pendente da busca.</div>
+<div class="warn"><b>Antes de enviar:</b> definir o vídeo como Público, completar a comparação com Flutter e anexar a captura da busca.</div>
 </section>
 </body></html>

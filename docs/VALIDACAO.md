@@ -23,7 +23,7 @@
 - Testar uma alteração sem rede e confirmar o reenvio automático depois de reconectar.
 - TalkBack/VoiceOver, fonte ampliada e leitor de tela.
 - Capturas finais no modo Supabase; as imagens anteriores mostram a versão local e incluem endereço de e-mail pessoal.
-- Link público do vídeo e sua duração real.
+- Link do vídeo recebido; duração dentro do intervalo confirmada pelo integrante. Visibilidade Pública a confirmar.
 - Comparação com o Somativo de Flutter, que depende de confirmar o tema e a experiência do grupo.
 
 ## Limites das verificações
